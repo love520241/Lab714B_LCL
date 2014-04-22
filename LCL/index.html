@@ -1,0 +1,149 @@
+<?php session_start();?>
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<title>無標題文件</title>
+<style type="text/css">
+#apDiv1 {
+	border-style:solid;
+	border-color:#fff;
+	border-right-width:20px;
+	text-align:center;
+	position: fixed;
+	width: 10%;
+	height: 400px;
+	z-index: 1;
+	background-color: #CCCCCC;
+	left: -155px;
+	top: 115px;
+	-webkit-transition: 1s;
+}
+
+#apDiv1:hover{
+	background-color: #FCF;
+	left: 0px;
+}
+body {
+	background-color: #FFFF99;
+	color: #D6D6D6;
+}
+li{
+	width:70px;
+	margin-bottom:10px;
+	color:#fff;
+	list-style-type:none;
+	-webkit-transition:0.3s;
+	}
+li:hover{
+	color:#000;
+	background-color:#FF0}
+
+#apDiv1 ul li {
+	font-size: 22px;
+	color: #C63;
+}
+#apDiv2 {
+	position: absolute;
+	width: 90%;
+	height: 90%;
+	z-index: 1;
+	left: 10%;
+	top: 10%;
+	background-color: #FFFF99;
+}
+#apDiv3 {
+	position: absolute;
+	width: 100%;
+	height: 10%;
+	z-index: 2;
+	top: 0;
+	left: 0;
+	background-color: #66FFCC;
+}
+.hh1 {
+	color: #000000;
+}
+.hh1 {
+	color: #000000;
+}
+#apDiv3 strong {
+	font-size: larger;
+	color: #000000;
+	text-align: left;
+}
+</style>
+</head>
+
+<body>
+<div id="apDiv1">
+  <ul>
+    <li>李啟綱</li>
+    <li>陳哲儒</li>
+    <li>呂祈緯</li>
+    
+  </ul>
+  </div>
+  <div id="apDiv2"><form name="form1" method="post" action="edit.php">
+		<table align="center" >
+		<tr>
+		  <td width="71" height="150" align="right"></td>
+				<td width="543">	
+			      <p><span class="hh1">帳號 :</span>
+			        <input type="text" name="id">
+			      </p>
+			      <p><br>
+			        <span class="hh1">密碼 :</span>
+			        <input type="password" name="password"><br>
+		          </p>
+          </td>
+		</tr>
+		<tr>
+				<td colspan="2" align="center">
+					<input type="submit" name="Submit" value="登入" onclick="return  check()">
+					<input type="Reset" name="Reset" value="重新填寫">
+                    <a href=test.php>註冊會員</a>
+					
+				</td>
+		</tr>
+				
+		</table>
+  </form>
+</div>
+  <div id="apDiv3">
+   
+       <h3><strong>會員登入</strong></h3>
+   
+  </div>
+
+</body>
+</html>
+
+
+ <script language="javascript" type="text/javascript">
+   
+function check(){
+			msg = "";
+     if(document.forms[0].id.value == "")
+     {
+			msg = "請輸入帳號!";
+	 }
+     else if(document.forms[0].password.value == "")
+     {
+			msg = "請輸入密碼!";
+     }
+    else if(document.forms[0].password.value != "" && document.forms[0].id.value != "")
+	{
+			<?php $id=$_POST["id"];
+			$_SESSION["user"]=$id;
+			$password=$_POST["password"];
+			$_SESSION["user"]=$password;
+			?>
+			return true;
+			
+    }
+			alert(msg);
+			return false;
+   
+}
+    </script>
